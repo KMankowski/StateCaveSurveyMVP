@@ -1,0 +1,33 @@
+CREATE DATABASE IF NOT EXISTS survey;
+
+USE survey;
+
+CREATE TABLE IF NOT EXISTS cave (
+    id SMALLINT UNSIGNED
+        AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(20)
+        NOT NULL UNIQUE
+) ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS entrance (
+    id SMALLINT UNSIGNED
+        AUTO_INCREMENT PRIMARY KEY,
+    cave_id SMALLINT UNSIGNED
+        NOT NULL,
+    name VARCHAR(20)
+        NOT NULL,
+    county VARCHAR(20)
+        NOT NULL,
+    location POINT
+        NOT NULL SRID 4326,
+    submission_date DATETIME
+        NOT NULL
+        DEFAULT CURRENT_TIMESTAMP,
+    updated_date DATETIME
+        NOT NULL
+        DEFAULT CURRENT_TIMESTAMP
+        ON UPDATE CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (cave_id) REFERENCES cave(id),
+    UNIQUE (cave_id, name)
+) ENGINE = InnoDB;
