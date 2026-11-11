@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS cave (
         NOT NULL,
     is_open BOOLEAN,
     horizontal_length_feet INT UNSIGNED,
-    vertical_length_feet INT UNSIGNED,
+    vertical_depth_feet INT UNSIGNED,
     number_of_pits SMALLINT UNSIGNED,
     deepest_pit_length_feet SMALLINT UNSIGNED,
     first_submitted DATETIME

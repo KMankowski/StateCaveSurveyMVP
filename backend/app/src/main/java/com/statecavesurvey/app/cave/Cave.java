@@ -34,8 +34,8 @@ class Cave {
   @Column(name = "horizontal_length_feet")
   private Integer horizontalLengthFeet;
 
-  @Column(name = "vertical_length_feet")
-  private Integer verticalLengthFeet;
+  @Column(name = "vertical_depth_feet")
+  private Integer verticalDepthFeet;
 
   @Column(name = "number_of_pits")
   private Integer numberOfPits;
@@ -99,12 +99,12 @@ class Cave {
     this.horizontalLengthFeet = horizontalLengthFeet;
   }
 
-  Integer getVerticalLengthFeet() {
-    return verticalLengthFeet;
+  Integer getVerticalDepthFeet() {
+    return verticalDepthFeet;
   }
 
-  void setVerticalLengthFeet(Integer verticalLengthFeet) {
-    this.verticalLengthFeet = verticalLengthFeet;
+  void setVerticalDepthFeet(Integer verticalDepthFeet) {
+    this.verticalDepthFeet = verticalDepthFeet;
   }
 
   Integer getNumberOfPits() {

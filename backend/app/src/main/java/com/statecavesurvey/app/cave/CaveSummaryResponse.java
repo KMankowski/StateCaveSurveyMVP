@@ -9,7 +9,7 @@ record CaveSummaryResponse(
     String descriptionPreview,
     Boolean isOpen,
     Integer horizontalLengthFeet,
-    Integer verticalLengthFeet,
+    Integer verticalDepthFeet,
     Integer numberOfPits,
     Integer deepestPitLengthFeet,
     Instant firstSubmitted,

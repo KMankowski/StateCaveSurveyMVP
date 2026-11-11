@@ -32,7 +32,7 @@ class CaveService {
         toPreview(cave.getDescription()),
         cave.getIsOpen(),
         cave.getHorizontalLengthFeet(),
-        cave.getVerticalLengthFeet(),
+        cave.getVerticalDepthFeet(),
         cave.getNumberOfPits(),
         cave.getDeepestPitLengthFeet(),
         cave.getFirstSubmitted(),

@@ -7,7 +7,7 @@ INSERT INTO cave (
     description,
     is_open,
     horizontal_length_feet,
-    vertical_length_feet,
+    vertical_depth_feet,
     number_of_pits,
     deepest_pit_length_feet
 ) VALUES
