@@ -18,9 +18,14 @@ export default defineConfig([
       parserOptions: { ecmaFeatures: { jsx: true } },
     },
   },
-  // shadcn components also export style helpers, which this rule flags
+  // These files export non-components on purpose, which this rule flags:
+  // shadcn components export style helpers, and pages export their loaders
+  // and actions. Saving one of these files reloads the page in dev.
   {
-    files: ['src/components/ui/**/*.{js,jsx}'],
+    files: [
+      'src/components/ui/**/*.{js,jsx}',
+      'src/pages/**/*.{js,jsx}',
+    ],
     rules: { 'react-refresh/only-export-components': 'off' },
   },
 ])

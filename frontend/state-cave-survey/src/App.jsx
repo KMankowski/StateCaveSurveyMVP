@@ -1,8 +1,18 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createBrowserRouter, Navigate, RouterProvider } from "react-router";
+
 import RootLayoutPage from "./pages/RootLayoutPage";
-import CavesPage from "./pages/CavesPage";
+import CavesPage, { cavesLoader } from "./pages/CavesPage";
 import TripsPage from "./pages/TripsPage";
 import PeoplePage from "./pages/PeoplePage";
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 60_000,
+    },
+  },
+});
 
 const router = createBrowserRouter([
   {
@@ -16,6 +26,7 @@ const router = createBrowserRouter([
       {
         path: "caves",
         element: <CavesPage />,
+        loader: () => cavesLoader(queryClient),
       },
       {
         path: "trips",
@@ -30,5 +41,9 @@ const router = createBrowserRouter([
 ]);
 
 export default function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
+  );
 }
