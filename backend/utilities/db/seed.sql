@@ -1,106 +1,45 @@
-INSERT INTO cave (name) VALUES
-    ('Crystal Cavern'),
-    ('Moonlight Cave'),
-    ('Eagle Cave'),
-    ('Whispering Cave'),
-    ('Hidden Hollow'),
-    ('Thunder Cave'),
-    ('Silver Cavern'),
-    ('Raven Cave'),
-    ('Emerald Grotto'),
-    ('Bear Cave'),
-    ('Lost Cavern'),
-    ('Shadow Cave'),
-    ('Sunset Cavern'),
-    ('Granite Cave'),
-    ('Wolf Den'),
-    ('Dragon Cave'),
-    ('Echo Cavern'),
-    ('Mystic Cave'),
-    ('Cedar Hollow'),
-    ('Deep Hollow'),
-    ('River Cave'),
-    ('Limestone Cave'),
-    ('Blackwater Cave'),
-    ('Wind Cave'),
-    ('Blue Grotto'),
-    ('Copper Cavern'),
-    ('Frost Cave'),
-    ('Redstone Cave'),
-    ('Pine Cave'),
-    ('Coyote Cavern'),
-    ('Hidden River Cave'),
-    ('Grand Cavern');
+-- The app reads DATETIME columns as UTC, so the CURRENT_TIMESTAMP defaults must be UTC too
+SET time_zone = '+00:00';
 
-
-INSERT INTO entrance (cave_id, name, county, location) VALUES
-
-    -- 20 caves with exactly 1 entrance
-    (1,  'Crystal Cavern',       'Hall',       ST_SRID(POINT(-84.1500, 34.2500), 4326)),
-    (2,  'Moonlight Cave',       'White',      ST_SRID(POINT(-83.7500, 34.6500), 4326)),
-    (3,  'Eagle Cave',           'Pickens',    ST_SRID(POINT(-84.4500, 34.5000), 4326)),
-    (4,  'Whispering Cave',      'Gilmer',     ST_SRID(POINT(-84.9000, 34.7000), 4326)),
-    (5,  'Hidden Hollow',        'Union',      ST_SRID(POINT(-83.9000, 34.8500), 4326)),
-    (6,  'Thunder Cave',         'Fannin',     ST_SRID(POINT(-84.3000, 34.8000), 4326)),
-    (7,  'Silver Cavern',        'Murray',     ST_SRID(POINT(-84.7000, 34.8000), 4326)),
-    (8,  'Raven Cave',           'Whitfield',  ST_SRID(POINT(-84.9500, 34.8500), 4326)),
-    (9,  'Emerald Grotto',       'Walker',     ST_SRID(POINT(-85.3000, 34.7000), 4326)),
-    (10, 'Bear Cave',            'Dade',       ST_SRID(POINT(-85.5000, 34.8500), 4326)),
-    (11, 'Lost Cavern',          'Catoosa',    ST_SRID(POINT(-85.1000, 34.9500), 4326)),
-    (12, 'Shadow Cave',          'Gordon',     ST_SRID(POINT(-84.7500, 34.5000), 4326)),
-    (13, 'Sunset Cavern',        'Bartow',     ST_SRID(POINT(-84.8000, 34.2500), 4326)),
-    (14, 'Granite Cave',         'Cherokee',   ST_SRID(POINT(-84.5500, 34.2000), 4326)),
-    (15, 'Wolf Den',             'Forsyth',    ST_SRID(POINT(-84.1500, 34.1500), 4326)),
-    (16, 'Dragon Cave',          'Dawson',     ST_SRID(POINT(-84.1500, 34.4500), 4326)),
-    (17, 'Echo Cavern',          'Lumpkin',    ST_SRID(POINT(-84.0000, 34.5500), 4326)),
-    (18, 'Mystic Cave',          'Banks',      ST_SRID(POINT(-83.5000, 34.3500), 4326)),
-    (19, 'Cedar Hollow',         'Habersham',  ST_SRID(POINT(-83.5000, 34.5500), 4326)),
-    (20, 'Deep Hollow',          'Rabun',      ST_SRID(POINT(-83.6000, 34.9000), 4326)),
-
-
-    -- 10 caves with exactly 2 entrances
-    -- Each has one entrance matching the cave name exactly.
-    (21, 'River Cave',           'Jackson',    ST_SRID(POINT(-83.5500, 34.1000), 4326)),
-    (21, 'North Entrance',       'Jackson',    ST_SRID(POINT(-83.5600, 34.1050), 4326)),
-
-    (22, 'Limestone Cave',       'Madison',    ST_SRID(POINT(-83.2000, 34.0500), 4326)),
-    (22, 'South Entrance',       'Madison',    ST_SRID(POINT(-83.2100, 34.0450), 4326)),
-
-    (23, 'Blackwater Cave',      'Oglethorpe', ST_SRID(POINT(-83.1000, 33.9000), 4326)),
-    (23, 'Creek Entrance',       'Oglethorpe', ST_SRID(POINT(-83.1100, 33.9050), 4326)),
-
-    (24, 'Wind Cave',            'Elbert',     ST_SRID(POINT(-82.8500, 34.1000), 4326)),
-    (24, 'East Entrance',        'Elbert',     ST_SRID(POINT(-82.8400, 34.1050), 4326)),
-
-    (25, 'Blue Grotto',          'Franklin',   ST_SRID(POINT(-83.2000, 34.4000), 4326)),
-    (25, 'Lower Entrance',       'Franklin',   ST_SRID(POINT(-83.2100, 34.3950), 4326)),
-
-    (26, 'Copper Cavern',        'Hart',       ST_SRID(POINT(-82.9000, 34.3500), 4326)),
-    (26, 'Upper Entrance',       'Hart',       ST_SRID(POINT(-82.8900, 34.3550), 4326)),
-
-    (27, 'Frost Cave',           'Stephens',   ST_SRID(POINT(-83.3000, 34.5500), 4326)),
-    (27, 'Ice Entrance',         'Stephens',   ST_SRID(POINT(-83.3100, 34.5550), 4326)),
-
-    (28, 'Redstone Cave',        'Towns',      ST_SRID(POINT(-83.7000, 34.9000), 4326)),
-    (28, 'Red Entrance',         'Towns',      ST_SRID(POINT(-83.7100, 34.9050), 4326)),
-
-    (29, 'Pine Cave',            'Macon',      ST_SRID(POINT(-83.4000, 35.0500), 4326)),
-    (29, 'Forest Entrance',      'Macon',      ST_SRID(POINT(-83.4100, 35.0550), 4326)),
-
-    (30, 'Coyote Cavern',        'Clay',       ST_SRID(POINT(-83.6000, 35.0500), 4326)),
-    (30, 'Ridge Entrance',       'Clay',       ST_SRID(POINT(-83.6100, 35.0550), 4326)),
-
-
-    -- 2 caves with exactly 5 entrances
-    -- Each has one entrance matching the cave name exactly.
-    (31, 'Hidden River Cave',    'Monroe',     ST_SRID(POINT(-80.5500, 37.5500), 4326)),
-    (31, 'North Entrance',       'Monroe',     ST_SRID(POINT(-80.5600, 37.5550), 4326)),
-    (31, 'South Entrance',       'Monroe',     ST_SRID(POINT(-80.5400, 37.5450), 4326)),
-    (31, 'Water Entrance',       'Monroe',     ST_SRID(POINT(-80.5650, 37.5500), 4326)),
-    (31, 'Ridge Entrance',       'Monroe',     ST_SRID(POINT(-80.5450, 37.5600), 4326)),
-
-    (32, 'Grand Cavern',         'Greenbrier', ST_SRID(POINT(-80.8000, 37.9500), 4326)),
-    (32, 'Main Entrance',        'Greenbrier', ST_SRID(POINT(-80.8100, 37.9550), 4326)),
-    (32, 'North Entrance',       'Greenbrier', ST_SRID(POINT(-80.7900, 37.9550), 4326)),
-    (32, 'South Entrance',       'Greenbrier', ST_SRID(POINT(-80.8100, 37.9450), 4326)),
-    (32, 'Hidden Entrance',      'Greenbrier', ST_SRID(POINT(-80.7900, 37.9450), 4326));
+INSERT INTO cave (
+    external_id,
+    name,
+    description,
+    is_open,
+    horizontal_length_feet,
+    vertical_length_feet,
+    number_of_pits,
+    deepest_pit_length_feet
+) VALUES
+    ('SCS-0001', 'Crystal Cavern',    'Dry upper passages lined with calcite crystals.',           TRUE,    4200,  85, 1,  40),
+    ('SCS-0002', 'Moonlight Cave',    'Low crawlway opening into a single large room.',            TRUE,     850,  30, 0,   0),
+    ('SCS-0003', 'Eagle Cave',        'Bluff-side entrance used by nesting birds.',                FALSE,   1200,  60, 1,  35),
+    ('SCS-0004', 'Whispering Cave',   'Strong airflow at the entrance produces a constant hiss.',  TRUE,    3100, 110, 2,  55),
+    ('SCS-0005', 'Hidden Hollow',     'Sinkhole entrance hidden in a wooded hollow.',              TRUE,     640,  45, 1,  45),
+    ('SCS-0006', 'Thunder Cave',      'Active stream passage that floods after heavy rain.',       FALSE,   7800, 150, 2,  70),
+    ('SCS-0007', 'Silver Cavern',     'Wide borehole passage with flowstone formations.',          TRUE,   12500, 210, 3,  95),
+    ('SCS-0008', 'Raven Cave',        'Short dark passage ending in breakdown.',                   TRUE,     300,  20, 0,   0),
+    ('SCS-0009', 'Emerald Grotto',    'Spring-fed pool near the entrance with green-tinted water.', TRUE,    950,  25, 0,   0),
+    ('SCS-0010', 'Bear Cave',         'Shelter cave with old bear wallows in the clay floor.',     FALSE,   1500,  40, 0,   0),
+    ('SCS-0011', 'Lost Cavern',       'Maze of narrow joint-controlled passages.',                 TRUE,   18400, 175, 4,  60),
+    ('SCS-0012', 'Shadow Cave',       'Tight squeeze leads to a decorated chamber.',               FALSE,   2200,  95, 1,  50),
+    ('SCS-0013', 'Sunset Cavern',     'West-facing entrance in a limestone bluff.',                TRUE,    1100,  35, 0,   0),
+    ('SCS-0014', 'Granite Cave',      'Talus cave formed among large granite boulders.',           TRUE,     420,  55, 1,  25),
+    ('SCS-0015', 'Wolf Den',          'Small crawl with a single side room.',                      TRUE,     180,  10, 0,   0),
+    ('SCS-0016', 'Dragon Cave',       'Long serpentine canyon passage.',                           TRUE,    9600, 240, 3, 110),
+    ('SCS-0017', 'Echo Cavern',       'Large dome room with notable acoustics.',                   TRUE,    5300, 130, 2,  80),
+    ('SCS-0018', 'Mystic Cave',       'Seasonal fog forms at the entrance in winter.',             FALSE,   2700,  70, 1,  30),
+    ('SCS-0019', 'Cedar Hollow',      'Entrance at the head of a cedar-lined ravine.',             TRUE,     760,  50, 1,  40),
+    ('SCS-0020', 'Deep Hollow',       'Vertical cave requiring rope for most passages.',           FALSE,   3400, 420, 5, 185),
+    ('SCS-0021', 'River Cave',        'Through-trip following an underground river.',              TRUE,   24800, 160, 2,  65),
+    ('SCS-0022', 'Limestone Cave',    'Classic solution cave with well-developed speleothems.',    TRUE,    6900, 120, 1,  45),
+    ('SCS-0023', 'Blackwater Cave',   'Sump-terminated stream cave with dark tannic water.',       FALSE,   4100,  90, 0,   0),
+    ('SCS-0024', 'Wind Cave',         'Breathing cave with strong seasonal airflow.',              TRUE,   15200, 260, 3, 120),
+    ('SCS-0025', 'Blue Grotto',       'Water-filled lower level explored by cave divers.',         FALSE,   3800, 140, 1,  60),
+    ('SCS-0026', 'Copper Cavern',     'Mineral-stained walls with historic mining marks.',         FALSE,   2600,  80, 1,  35),
+    ('SCS-0027', 'Frost Cave',        'Cold-air trap that holds ice into early spring.',           TRUE,    1400,  95, 2,  50),
+    ('SCS-0028', 'Redstone Cave',     'Iron-stained passages with red clay banks.',                TRUE,    5800, 115, 1,  40),
+    ('SCS-0029', 'Pine Cave',         'Short cave beneath a pine-covered ridge.',                  TRUE,     520,  30, 0,   0),
+    ('SCS-0030', 'Coyote Cavern',     'Ridge-top cave with two connected entrances.',              TRUE,    4600, 175, 2,  90),
+    ('SCS-0031', 'Hidden River Cave', 'Extensive multi-level system with five known entrances.',   TRUE,  142000, 380, 6, 140),
+    ('SCS-0032', 'Grand Cavern',      'Large multi-entrance system with major borehole trunks.',   TRUE,   87500, 450, 8, 210);

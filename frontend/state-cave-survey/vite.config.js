@@ -14,4 +14,10 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
+  // only effects npm run dev - essentially mirrors CDN request routing behavior
+  server: {
+    proxy: {
+      '/api': 'http://localhost:8080',
+    },
+  },
 })
