@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 class CaveService {
 
-  private static final int DESCRIPTION_PREVIEW_LENGTH = 200;
+  private static final int DESCRIPTION_PREVIEW_LENGTH = 100;
 
   private final CaveRepository caveRepository;
 
